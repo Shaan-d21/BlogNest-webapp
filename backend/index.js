@@ -12,7 +12,7 @@ const app = express();
 dotenv.config();
 
 const port = process.env.PORT || 4001;
-const MONOGO_URL = process.env.MONOG_URI;
+const MONGO_URL = process.env.MONOG_URI;
 
 // Health Check Route
 app.get("/health", (req, res) => {
@@ -51,7 +51,7 @@ app.use(
 
 // DB Code
 try {
-  mongoose.connect(MONOGO_URL);
+  mongoose.connect(MONGO_URL);
   console.log("Conntected to MonogDB");
 } catch (error) {
   console.log(error);

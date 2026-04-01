@@ -6,10 +6,10 @@ const createTokenAndSaveCookies = async (userId, res) => {
     expiresIn: "30d",
   });
   res.cookie("jwt", token, {
-    httpOnly: true, // Temporarily set to false for testing
-    secure: false,
-    sameSite: "lax",
-    path: "/", // Ensure the cookie is available throughout the site
+    httpOnly: true,
+    secure: true, // Required for HTTPS (Render provides this)
+    sameSite: "none", // Crucial for Vercel -> Render communication
+    maxAge: 24 * 60 * 60 * 1000, // 1 day
   });
   await User.findByIdAndUpdate(userId, { token });
   return token;
