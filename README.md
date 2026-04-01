@@ -26,11 +26,6 @@ BlogNest is a modern, full-stack blogging platform built using the MERN stack (M
 
   * MongoDB Atlas integration for scalable and reliable storage
 
-* 🐳 **Dockerized Application**
-
-  * Containerized using Docker and Docker Compose
-  * Easy setup and consistent environment across systems
-
 ---
 
 ## 🛠️ Tech Stack
@@ -51,11 +46,6 @@ BlogNest is a modern, full-stack blogging platform built using the MERN stack (M
 
 * MongoDB Atlas
 
-### DevOps
-
-* Docker
-* Docker Compose
-
 ---
 
 ## 📁 Project Structure
@@ -65,7 +55,6 @@ BlogNest/
 ├── backend/           # Node/Express API, JWT Auth, Models
 ├── frontend/          # React + Vite, Tailwind UI
 ├── .github/           # GitHub Actions CI/CD workflows
-├── docker-compose.yml # Orchestration for local development
 └── README.md
 ```
 
@@ -75,7 +64,6 @@ BlogNest/
 
 ### Prerequisites
 
-* Docker & Docker Compose installed.
 * Node.js (if running without Docker).
 * A MongoDB Atlas Connection String.
 
@@ -128,18 +116,10 @@ npm run dev
 
 ---
 
-### 🐳 Run Using Docker
-
-Make sure Docker is installed and running.
-
-```bash
-docker-compose up --build
-```
-
 Application will be available at:
 
-* Frontend: [http://localhost:3000](http://localhost:3000)
-* Backend: [http://localhost:5000](http://localhost:5000)
+* Frontend: [http://localhost:5173](http://localhost:5173)
+* Backend: [http://localhost:4001](http://localhost:4001)
 
 ---
 

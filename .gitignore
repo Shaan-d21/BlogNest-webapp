@@ -13,7 +13,7 @@
 /coverage/
 
 # Environment variables
-.env
+/backend/.env
 
 # IDEs and editors
 .vscode/
