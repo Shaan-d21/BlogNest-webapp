@@ -1,47 +1,47 @@
-import axios from "axios";
-import React, { useState } from "react";
-import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthProvider";
+import axios from 'axios';
+import React, { useState } from 'react';
+import toast from 'react-hot-toast';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthProvider';
 
 function Login() {
   const { isAuthenticated, setIsAuthenticated, setProfile } = useAuth();
 
   const navigateTo = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [role, setRole] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [role, setRole] = useState('');
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     try {
       const { data } = await axios.post(
-        "http://localhost:4001/api/users/login",
+        'http://localhost:4001/api/users/login',
         { email, password, role },
         {
           withCredentials: true,
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
         }
       );
       console.log(data);
       // Store the token in localStorage
-      localStorage.setItem("jwt", data.token); // storing token in localStorage so that if user refreshed the page it will not redirect again in login
-      toast.success(data.message || "User Logined successfully", {
+      localStorage.setItem('jwt', data.token); // storing token in localStorage so that if user refreshed the page it will not redirect again in login
+      toast.success(data.message || 'User Logined successfully', {
         duration: 3000,
       });
       setProfile(data);
       setIsAuthenticated(true);
-      setEmail("");
-      setPassword("");
-      setRole("");
-      navigateTo("/");
+      setEmail('');
+      setPassword('');
+      setRole('');
+      navigateTo('/');
     } catch (error) {
       console.log(error);
       toast.error(
-        error.response.data.message || "Please fill the required fields",
+        error.response.data.message || 'Please fill the required fields',
         {
           duration: 3000,
         }
@@ -89,8 +89,8 @@ function Login() {
             </div>
 
             <p className="text-center mb-4">
-              New User?{" "}
-              <Link to={"/register"} className="text-blue-600">
+              New User?{' '}
+              <Link to={'/register'} className="text-blue-600">
                 Register Now
               </Link>
             </p>

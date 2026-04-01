@@ -1,6 +1,6 @@
-import React from "react";
-import { useAuth } from "../context/AuthProvider";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { useAuth } from '../context/AuthProvider';
+import { Link } from 'react-router-dom';
 
 function Blogs() {
   const { blogs } = useAuth();
@@ -14,7 +14,7 @@ function Blogs() {
           {blogs && blogs.length > 0 ? (
             blogs.map((blog, index) => (
               <Link
-                to={`/blog/${blog.id}`}
+                to={`/blog/${blog._id}`}  
                 key={index}
                 className="relative rounded-lg overflow-hidden shadow-md transform hover:scale-105 transition-transform duration-300"
               >

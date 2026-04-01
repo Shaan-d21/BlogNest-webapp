@@ -1,0 +1,8 @@
+name: Frontend Deployment
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - frontend/**
+      - .github/workflows/frontend_deploy.yaml

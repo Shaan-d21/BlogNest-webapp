@@ -1,18 +1,18 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import toast from "react-hot-toast";
-import { useNavigate, useParams } from "react-router-dom";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
+import { useNavigate, useParams } from 'react-router-dom';
 
 function UpdateBlog() {
   const navigateTo = useNavigate();
   const { id } = useParams();
 
-  const [title, setTitle] = useState("");
-  const [category, setCategory] = useState("");
-  const [about, setAbout] = useState("");
+  const [title, setTitle] = useState('');
+  const [category, setCategory] = useState('');
+  const [about, setAbout] = useState('');
 
-  const [blogImage, setBlogImage] = useState("");
-  const [blogImagePreview, setBlogImagePreview] = useState("");
+  const [blogImage, setBlogImage] = useState('');
+  const [blogImagePreview, setBlogImagePreview] = useState('');
 
   const changePhotoHandler = (e) => {
     console.log(e);
@@ -34,7 +34,7 @@ function UpdateBlog() {
           {
             withCredentials: true,
             headers: {
-              "Content-Type": "multipart/form-data",
+              'Content-Type': 'multipart/form-data',
             },
           }
         );
@@ -45,7 +45,7 @@ function UpdateBlog() {
         setBlogImage(data?.blogImage.url);
       } catch (error) {
         console.log(error);
-        toast.error("Please fill the required fields");
+        toast.error('Please fill the required fields');
       }
     };
     fetchBlog();
@@ -54,11 +54,11 @@ function UpdateBlog() {
   const handleUpdate = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("title", title);
-    formData.append("category", category);
-    formData.append("about", about);
+    formData.append('title', title);
+    formData.append('category', category);
+    formData.append('about', about);
 
-    formData.append("blogImage", blogImage);
+    formData.append('blogImage', blogImage);
     try {
       const { data } = await axios.put(
         `http://localhost:4001/api/blogs/update/${id}`,
@@ -66,17 +66,17 @@ function UpdateBlog() {
         {
           withCredentials: true,
           headers: {
-            "Content-Type": "multipart/form-data",
+            'Content-Type': 'multipart/form-data',
           },
         }
       );
       console.log(data);
-      toast.success(data.message || "Blog updated successfully");
-      navigateTo("/");
+      toast.success(data.message || 'Blog updated successfully');
+      navigateTo('/');
     } catch (error) {
       console.log(error);
       toast.error(
-        error.response.data.message || "Please fill the required fields"
+        error.response.data.message || 'Please fill the required fields'
       );
     }
   };
@@ -116,8 +116,8 @@ function UpdateBlog() {
                   blogImagePreview
                     ? blogImagePreview
                     : blogImage
-                    ? blogImage
-                    : "/imgPL.webp"
+                      ? blogImage
+                      : '/imgPL.webp'
                 }
                 alt="Blog Main"
                 className="w-full h-48 object-cover mb-4 rounded-md"

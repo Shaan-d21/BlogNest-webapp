@@ -1,22 +1,22 @@
-import axios from "axios";
-import React, { useState } from "react";
-import toast from "react-hot-toast";
-import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthProvider";
+import axios from 'axios';
+import React, { useState } from 'react';
+import toast from 'react-hot-toast';
+import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthProvider';
 
 function Register() {
   const { isAuthenticated, setIsAuthenticated, setProfile } = useAuth();
 
   const navigateTo = useNavigate();
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [password, setPassword] = useState("");
-  const [role, setRole] = useState("");
-  const [education, setEducation] = useState("");
-  const [photo, setPhoto] = useState("");
-  const [photoPreview, setPhotoPreview] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [password, setPassword] = useState('');
+  const [role, setRole] = useState('');
+  const [education, setEducation] = useState('');
+  const [photo, setPhoto] = useState('');
+  const [photoPreview, setPhotoPreview] = useState('');
 
   const changePhotoHandler = (e) => {
     console.log(e);
@@ -32,42 +32,42 @@ function Register() {
   const handleRegister = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("name", name);
-    formData.append("email", email);
-    formData.append("phone", phone);
-    formData.append("password", password);
-    formData.append("role", role);
-    formData.append("education", education);
-    formData.append("photo", photo);
+    formData.append('name', name);
+    formData.append('email', email);
+    formData.append('phone', phone);
+    formData.append('password', password);
+    formData.append('role', role);
+    formData.append('education', education);
+    formData.append('photo', photo);
     try {
       const { data } = await axios.post(
-        "http://localhost:4001/api/users/register",
+        'http://localhost:4001/api/users/register',
         formData,
         {
           withCredentials: true,
           headers: {
-            "Content-Type": "multipart/form-data",
+            'Content-Type': 'multipart/form-data',
           },
         }
       );
       console.log(data);
-      localStorage.setItem("jwt", data.token); // storing token in localStorage so that if user refreshed the page it will not redirect again in login
-      toast.success(data.message || "User registered successfully");
+      localStorage.setItem('jwt', data.token); // storing token in localStorage so that if user refreshed the page it will not redirect again in login
+      toast.success(data.message || 'User registered successfully');
       setProfile(data);
       setIsAuthenticated(true);
-      setName("");
-      setEmail("");
-      setPhone("");
-      setPassword("");
-      setRole("");
-      setEducation("");
-      setPhoto("");
-      setPhotoPreview("");
-      navigateTo("/");
+      setName('');
+      setEmail('');
+      setPhone('');
+      setPassword('');
+      setRole('');
+      setEducation('');
+      setPhoto('');
+      setPhotoPreview('');
+      navigateTo('/');
     } catch (error) {
       console.log(error);
       toast.error(
-        error.response.data.message || "Please fill the required fields"
+        error.response.data.message || 'Please fill the required fields'
       );
     }
   };
@@ -140,7 +140,7 @@ function Register() {
             <div className="flex items-center mb-4">
               <div className="photo w-20 h-20 mr-4">
                 <img
-                  src={photoPreview ? `${photoPreview}` : "photo"}
+                  src={photoPreview ? `${photoPreview}` : 'photo'}
                   alt="photo"
                 />
               </div>
@@ -151,8 +151,8 @@ function Register() {
               />
             </div>
             <p className="text-center mb-4">
-              Already registered?{" "}
-              <Link to={"/login"} className="text-blue-600">
+              Already registered?{' '}
+              <Link to={'/login'} className="text-blue-600">
                 Login Now
               </Link>
             </p>

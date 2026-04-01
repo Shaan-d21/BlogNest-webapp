@@ -1,10 +1,10 @@
-import React from "react";
-import { useAuth } from "../context/AuthProvider";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { useAuth } from '../context/AuthProvider';
+import { Link } from 'react-router-dom';
 
 function Devotional() {
   const { blogs } = useAuth();
-  const devotionalBlogs = blogs?.filter((blog) => blog.category === "Devotion");
+  const devotionalBlogs = blogs?.filter((blog) => blog.category === 'Devotion');
   console.log(devotionalBlogs);
   return (
     <div>

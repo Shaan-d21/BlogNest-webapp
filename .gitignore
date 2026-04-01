@@ -1,0 +1,49 @@
+# Node modules
+/node_modules/
+
+# Build directories
+/dist/
+/build/
+/public/
+
+# Logs
+*.log
+
+# Dependency directories
+/coverage/
+
+# Environment variables
+.env
+
+# IDEs and editors
+.vscode/
+/.idea/
+/*.swp
+
+# Operating System files
+.DS_Store
+Thumbs.db
+
+# npm package lock (if using Yarn, add yarn.lock)
+package-lock.json
+
+# Next.js (if used)
+.next/
+
+# ESLint and Prettier configuration files (if you don't want to track these)
+*.eslintcache
+.prettierignore
+
+# Testing output
+/test-results/
+
+# Tye/VS Code settings (optional)
+.vscode/
+
+# OS Files
+Thumbs.db
+.DS_Store
+
+# Docker files (if any)
+docker-compose.override.yml
+.dockerignore

@@ -1,8 +1,8 @@
-import React from "react";
-import { useAuth } from "../context/AuthProvider";
-import { Link } from "react-router-dom";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import React from 'react';
+import { useAuth } from '../context/AuthProvider';
+import { Link } from 'react-router-dom';
+import Carousel from 'react-multi-carousel';
+import 'react-multi-carousel/lib/styles.css';
 function Trending() {
   const { blogs } = useAuth();
 
@@ -50,7 +50,7 @@ function Trending() {
                   <div className="p-4 bg-gray-50 rounded-b-lg h-36 flex flex-col justify-between">
                     <h1
                       className="text-lg font-bold mb-2 overflow-hidden text-ellipsis"
-                      style={{ whiteSpace: "nowrap" }}
+                      style={{ whiteSpace: 'nowrap' }}
                     >
                       {element.title}
                     </h1>

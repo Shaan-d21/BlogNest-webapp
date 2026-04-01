@@ -1,5 +1,5 @@
-import React from "react";
-import { useAuth } from "../context/AuthProvider";
+import React from 'react';
+import { useAuth } from '../context/AuthProvider';
 
 function About() {
   const { profile } = useAuth();
@@ -8,10 +8,10 @@ function About() {
     <div className="container mx-auto my-12 p-4 space-y-9">
       <h1 className="text-2xl font-bold mb-6">About</h1>
       <p>
-        This is{" "}
+        This is{' '}
         <strong className="text-blue-800 font-semibold hover:scale-105 duration-500">
           {profile?.user?.name}
-        </strong>{" "}
+        </strong>{' '}
         a proficient full stack developer with a robust skill set spanning both
         front-end and back-end technologies. With a passion for building
         dynamic, responsive, and user-friendly web applications, Akhil excels in
@@ -58,7 +58,7 @@ function About() {
       <p>
         Beyond his professional achievements, Akhil is a big fan of cricket and
         holds immense admiration for <strong> King Kohli.</strong> His favorite
-        person and biggest inspiration is his twin brother,{" "}
+        person and biggest inspiration is his twin brother,{' '}
         <strong>Ankush.</strong> Their friendly rivalry and deep bond have
         significantly shaped Akhil’s journey. Ankush is not only a great
         competitor but also a steadfast friend, constantly motivating Akhil to

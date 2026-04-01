@@ -1,14 +1,14 @@
-import axios from "axios";
-import React, { useState } from "react";
-import toast from "react-hot-toast";
+import axios from 'axios';
+import React, { useState } from 'react';
+import toast from 'react-hot-toast';
 
 function CreateBlog() {
-  const [title, setTitle] = useState("");
-  const [category, setCategory] = useState("");
-  const [about, setAbout] = useState("");
+  const [title, setTitle] = useState('');
+  const [category, setCategory] = useState('');
+  const [about, setAbout] = useState('');
 
-  const [blogImage, setBlogImage] = useState("");
-  const [blogImagePreview, setBlogImagePreview] = useState("");
+  const [blogImage, setBlogImage] = useState('');
+  const [blogImagePreview, setBlogImagePreview] = useState('');
 
   const changePhotoHandler = (e) => {
     console.log(e);
@@ -24,32 +24,32 @@ function CreateBlog() {
   const handleCreateBlog = async (e) => {
     e.preventDefault();
     const formData = new FormData();
-    formData.append("title", title);
-    formData.append("category", category);
-    formData.append("about", about);
+    formData.append('title', title);
+    formData.append('category', category);
+    formData.append('about', about);
 
-    formData.append("blogImage", blogImage);
+    formData.append('blogImage', blogImage);
     try {
       const { data } = await axios.post(
-        "http://localhost:4001/api/blogs/create",
+        'http://localhost:4001/api/blogs/create',
         formData,
         {
           withCredentials: true,
           headers: {
-            "Content-Type": "multipart/form-data",
+            'Content-Type': 'multipart/form-data',
           },
         }
       );
       console.log(data);
-      toast.success(data.message || "User registered successfully");
-      setTitle("");
-      setCategory("");
-      setAbout("");
-      setBlogImage("");
-      setBlogImagePreview("");
+      toast.success(data.message || 'User registered successfully');
+      setTitle('');
+      setCategory('');
+      setAbout('');
+      setBlogImage('');
+      setBlogImagePreview('');
     } catch (error) {
       console.log(error);
-      toast.error(error.message || "Please fill the required fields");
+      toast.error(error.message || 'Please fill the required fields');
     }
   };
   return (
@@ -89,7 +89,7 @@ function CreateBlog() {
               <label className="block text-lg">Blog Image</label>
               <div className="flex items-center justify-center">
                 <img
-                  src={blogImagePreview ? `${blogImagePreview}` : "/imgPL.webp"}
+                  src={blogImagePreview ? `${blogImagePreview}` : '/imgPL.webp'}
                   alt="Image"
                   className="w-full max-w-sm h-auto rounded-md object-cover"
                 />

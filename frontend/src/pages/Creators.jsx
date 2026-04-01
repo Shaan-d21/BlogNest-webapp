@@ -1,5 +1,5 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 
 function Creators() {
   const [creators, setCreators] = useState([]);
@@ -8,7 +8,7 @@ function Creators() {
     const fetchCreators = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:4001/api/users/admins",
+          'http://localhost:4001/api/users/admins',
           {
             withCredentials: true,
           }

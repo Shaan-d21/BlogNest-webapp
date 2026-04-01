@@ -1,8 +1,8 @@
-import React from "react";
-import { FaEnvelope, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
-import { useForm } from "react-hook-form";
-import axios from "axios";
-import toast from "react-hot-toast";
+import React from 'react';
+import { FaEnvelope, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 function Contact() {
   const {
@@ -14,16 +14,16 @@ function Contact() {
 
   const onSubmit = async (data) => {
     const userInfo = {
-      access_key: "c660c9ce-c6f9-41f7-aa0f-8a24ea887b94",
+      access_key: 'c660c9ce-c6f9-41f7-aa0f-8a24ea887b94',
       name: data.username,
       email: data.email,
       message: data.message,
     };
     try {
-      await axios.post("https://api.web3forms.com/submit", userInfo);
-      toast.success("Message sent successfully");
+      await axios.post('https://api.web3forms.com/submit', userInfo);
+      toast.success('Message sent successfully');
     } catch (error) {
-      toast.error("An error occurred");
+      toast.error('An error occurred');
     }
   };
   return (
@@ -47,7 +47,7 @@ function Contact() {
                     name="username"
                     placeholder="Your Name"
                     className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-                    {...register("username", { required: true })}
+                    {...register('username', { required: true })}
                   />
                   {errors.username && (
                     <span className="text-sm text-red-500 font-semibold">
@@ -61,7 +61,7 @@ function Contact() {
                     name="email"
                     placeholder="Your Email"
                     className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-                    {...register("email", { required: true })}
+                    {...register('email', { required: true })}
                   />
                   {errors.email && (
                     <span className="text-sm text-red-500 font-semibold">
@@ -74,7 +74,7 @@ function Contact() {
                     name="message"
                     placeholder="Your Message"
                     className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-green-500"
-                    {...register("message", { required: true })}
+                    {...register('message', { required: true })}
                   />
                   {errors.message && (
                     <span className="text-sm text-red-500 font-semibold">

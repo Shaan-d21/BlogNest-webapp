@@ -1,5 +1,5 @@
-import React from "react";
-import { useAuth } from "../context/AuthProvider";
+import React from 'react';
+import { useAuth } from '../context/AuthProvider';
 
 function MyProfile() {
   const { profile } = useAuth();

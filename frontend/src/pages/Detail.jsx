@@ -1,7 +1,7 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import toast from "react-hot-toast";
-import { useParams } from "react-router-dom";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
+import { useParams } from 'react-router-dom';
 
 function Detail() {
   const { id } = useParams();
@@ -16,7 +16,7 @@ function Detail() {
           {
             withCredentials: true,
             headers: {
-                "Content-Type": "application/json",
+              'Content-Type': 'application/json',
             },
           }
         );

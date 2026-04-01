@@ -1,7 +1,7 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 function MyBlogs() {
   const [myBlogs, setMyBlogs] = useState([]);
@@ -9,7 +9,7 @@ function MyBlogs() {
     const fetchMyBlogs = async () => {
       try {
         const { data } = await axios.get(
-          "http://localhost:4001/api/blogs/my-blog",
+          'http://localhost:4001/api/blogs/my-blog',
           { withCredentials: true }
         );
         console.log(data);
@@ -27,11 +27,11 @@ function MyBlogs() {
         withCredentials: true,
       })
       .then((res) => {
-        toast.success(res.data.message || "Blog deleted successfully");
+        toast.success(res.data.message || 'Blog deleted successfully');
         setMyBlogs((value) => value.filter((blog) => blog._id !== id));
       })
       .catch((error) => {
-        toast.error(error.response.message || "Failed to delete blog");
+        toast.error(error.response.message || 'Failed to delete blog');
       });
   };
   return (
