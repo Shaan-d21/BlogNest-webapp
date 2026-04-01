@@ -159,9 +159,13 @@ Application will be available at:
 
 ---
 
-## 📸 Screenshots (Optional)
+## 📸 Screenshots
 
-*Add screenshots of your UI here for better presentation.*
+![Login](image-1.png)
+![Register](image-2.png)
+![Home](image.png)
+![Blog](image-3.png)
+![Create Blog](image-4.png)
 
 ---
 
