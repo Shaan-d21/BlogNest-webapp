@@ -2,14 +2,15 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import api from '../utils/api';
 
 function MyBlogs() {
   const [myBlogs, setMyBlogs] = useState([]);
   useEffect(() => {
     const fetchMyBlogs = async () => {
       try {
-        const { data } = await axios.get(
-          'http://localhost:4001/api/blogs/my-blog',
+        const { data } = await api.get(
+          '/api/blogs/my-blog',
           { withCredentials: true }
         );
         console.log(data);
@@ -21,18 +22,21 @@ function MyBlogs() {
     fetchMyBlogs();
   }, []);
 
+
   const handleDelete = async (id) => {
-    await axios
-      .delete(`http://localhost:4001/api/blogs/delete/${id}`, {
-        withCredentials: true,
-      })
-      .then((res) => {
-        toast.success(res.data.message || 'Blog deleted successfully');
-        setMyBlogs((value) => value.filter((blog) => blog._id !== id));
-      })
-      .catch((error) => {
-        toast.error(error.response.message || 'Failed to delete blog');
-      });
+    try {
+      // 2. Use the 'api' instance - the baseURL is already handled!
+      const res = await api.delete(`/api/blogs/delete/${id}`);
+      
+      toast.success(res.data.message || 'Blog deleted successfully');
+      
+      // 3. Update the UI state
+      setMyBlogs((value) => value.filter((blog) => blog._id !== id));
+    } catch (error) {
+      // 4. Improved error logging
+      console.error("Delete error:", error);
+      toast.error(error.response?.data?.message || 'Failed to delete blog');
+    }
   };
   return (
     <div>

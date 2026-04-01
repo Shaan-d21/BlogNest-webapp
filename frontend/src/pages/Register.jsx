@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthProvider';
+import api from '../utils/api';
 
 function Register() {
   const { isAuthenticated, setIsAuthenticated, setProfile } = useAuth();
@@ -40,8 +41,8 @@ function Register() {
     formData.append('education', education);
     formData.append('photo', photo);
     try {
-      const { data } = await axios.post(
-        'http://localhost:4001/api/users/register',
+      const { data } = await api.post(
+        '/api/users/register',
         formData,
         {
           withCredentials: true,
